@@ -1,6 +1,6 @@
 import React from "react";
 
-const CompletedHabit = (props) => {
+const OngoingHabit = (props) => {
   const habit = props.habit;
 
   function increment() {
@@ -20,7 +20,7 @@ const CompletedHabit = (props) => {
   };
   return (
     <>
-      <div>Completed:</div>
+      <div>Ongoing:</div>
       <div className="item-todo">
         <div className="wrapper-habit-text">
           <div className="habit-name habit-text">{habit.habitName}</div>
@@ -36,12 +36,12 @@ const CompletedHabit = (props) => {
             ></div>
           </div>
           <div className="wrapper-btns">
-            <div className="btn-big-minus" onClick={decrement}>
+            <div className="btn-progress minus" onClick={decrement}>
               -
             </div>
-            {/* <div className="btn-progress plus" onClick={increment}>
-            +
-          </div> */}
+            <div className="btn-progress plus" onClick={increment}>
+              +
+            </div>
           </div>
         </div>
       </div>
@@ -49,4 +49,4 @@ const CompletedHabit = (props) => {
   );
 };
 
-export default CompletedHabit;
+export default OngoingHabit;

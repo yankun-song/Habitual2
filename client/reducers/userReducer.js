@@ -3,7 +3,7 @@ import * as types from "../constants/actionTypes";
 const initialState = {
   userId: 10000,
   userName: "Super User",
-  calendar: Array(28).fill(0),
+  calendar: Array(42).fill(0),
   todaysHabits: [
     { habitName: "drink water", targetNum: 5, fullfilledPercent: 0.4 }, // each element is an object
     { habitName: "walk dog", targetNum: 1, fullfilledPercent: 1 },
@@ -14,6 +14,13 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
+
+    case types.LOGIN_USER: {
+      const { userId, userName } = action.payload;
+      const newState = { ...state, userId, userName };
+      return newState;
+    }
+
     case types.GET_FEED: {
       const { userId, userName, calendar, todaysHabits } = action.payload;
       const newState = { ...state, userId, userName, calendar, todaysHabits };
@@ -37,7 +44,7 @@ const userReducer = (state = initialState, action) => {
           }
         }
       }
-      return {...state, todaysHabits: newTodaysHabits}
+      return { ...state, todaysHabits: newTodaysHabits };
     }
 
     case types.SHOW_MODAL_ADD: {

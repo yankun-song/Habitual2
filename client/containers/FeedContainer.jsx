@@ -4,7 +4,7 @@ import * as actions from "../actions/actions";
 
 import TopBar from "../components/TopBar.jsx";
 import Calendar from "../components/Calendar.jsx";
-import ToDos from "../components/ToDos.jsx";
+import Habits from "../components/Habits.jsx";
 import Completed from "../components/Completed.jsx";
 import AddHabit from "../components/AddHabit.jsx";
 import EditHabit from "../components/EditHabit.jsx";
@@ -49,12 +49,10 @@ class FeedContainer extends Component {
                     habits={this.props.todayHabit}/> */}
         <TopBar showModalAdd={this.props.showModalAdd} />
         <Calendar calendar={this.props.calendar} />
-        <ToDos
+        <Habits
           show={this.props.showModalEdit}
-          completeBool={this.props.completeBoolHabit}
-          incrementNum={this.props.incrementNumHabit}
-          decrementNum={this.props.decrementNumHabit}
-          todayHabit={this.props.todayHabit}
+          updateRecord={this.props.updateRecord}
+          todaysHabits={this.props.todaysHabits}
         />
         {/* <Completed 
                     show={this.props.showModalEdit} 
