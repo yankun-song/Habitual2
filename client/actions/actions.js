@@ -1,48 +1,27 @@
 import * as types from '../constants/actionTypes';
 
-export const loginUserActionCreator = userId => ({
+export const loginUserActionCreator = userInfo => ({
   type: types.LOGIN_USER,
-  payload: userId,
+  payload: userInfo,
 });
-
-export const getFeedActionCreator = data => ({
-  type: types.GET_FEED,
-  payload: data,
-});
-
 
 export const logoutUserActionCreator = () => ({
   type: types.LOGOUT_USER,
 });
 
-export const createHabitActionCreator = habitId => ({
+export const getFeedActionCreator = userInfo => ({
+  type: types.GET_FEED,
+  payload: userInfo,
+});
+
+export const updateReocrdActionCreator = habitInfo => ({
+  type: types.UPDATE_RECORD,
+  payload: habitInfo,
+});
+
+export const createHabitActionCreator = newHabit => ({
   type: types.CREATE_HABIT,
-  payload: habitId,
-});
-
-export const deactivateHabitActionCreator = habitId => ({
-  type: types.DEACTIVATE_HABIT,
-  payload: habitId,
-});
-
-export const completeBoolHabitActionCreator = habitId => ({
-  type: types.COMPLETE_BOOL_HABIT,
-  payload: habitId,
-});
-
-export const uncompleteBoolHabitActionCreator = habitId => ({
-  type: types.UNCOMPLETE_BOOL_HABIT,
-  payload: habitId,
-});
-
-export const incrementNumHabitActionCreator = habitId => ({
-  type: types.INCREMENT_NUM_HABIT,
-  payload: habitId,
-});
-
-export const decrementNumHabitActionCreator = habitId => ({
-  type: types.DECREMENT_NUM_HABIT,
-  payload: habitId,
+  payload: newHabit,
 });
 
 export const showModalAddActionCreator = show => ({
