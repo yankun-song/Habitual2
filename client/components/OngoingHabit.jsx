@@ -7,11 +7,25 @@ const OngoingHabit = (props) => {
     if (habit.fullfilledPercent == 0 && direction == "-") return;
     const newHabit = { habitName: habit.habitName, direction };
     props.updateRecord(newHabit);
+
+    // send request to /edithabit/update
+    const currentNum = Math.round(habit.fullfilledPercent * habit.targetNum);
+    const newNum = direction === "+" ? currentNum + 1 : currentNum - 1;
+    const reqOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userId: props.userId,
+        habitName: habit.habitName,
+        newNum,
+      }),
+    };
+
+    fetch("http://localhost:3000/edithabit/update", reqOptions).then((res) =>
+      res.json()
+    );
   }
 
-  const editHabit = () => {
-    props.show();
-  };
   return (
     <>
       <div className="item-todo">

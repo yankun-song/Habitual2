@@ -42,14 +42,17 @@ class FeedContainer extends Component {
     return (
       <div>
         <AddHabit
+          userId={this.props.userId}
           addPage={this.props.addPage}
           displayAdd={this.props.displayAdd}
           createHabit={this.props.createHabit}
         />
         <TopBar displayAdd={this.props.displayAdd} />
         <Calendar
+          userId={this.props.userId}
           calendar={this.props.calendar}
           displayHistory={this.props.displayHistory}
+          dateDiff={this.props.dateDiff}
           setDateDiff={this.props.setDateDiff}
         />
         <GetHistory
@@ -58,6 +61,7 @@ class FeedContainer extends Component {
           displayHistory={this.props.displayHistory}
         />
         <Habits
+          userId={this.props.userId}
           updateRecord={this.props.updateRecord}
           todaysHabits={this.props.todaysHabits}
         />

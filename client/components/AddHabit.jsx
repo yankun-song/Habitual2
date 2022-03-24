@@ -6,22 +6,21 @@ const AddHabit = (props) => {
     const targetNum = document.querySelector("#targetNum").value;
     const newHabit = { habitName, targetNum };
     props.createHabit(newHabit);
+
+    // send a add habit request
+    const reqOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userId: props.userId, habitName, targetNum }),
+    };
+
+    fetch("http://localhost:3000/edithabit/add", reqOptions).then((res) =>
+      res.json()
+    );
   }
 
   if (!props.addPage) return null;
-  // const state = props.habits;
-  // const selectedHabit = document.getElementById('habits')
-  // const selectedTarget =
-
-  // const reqOptions = {
-  //     method: 'PUT',
-  //     headers: { 'Content-Type': 'application/json'},
-  //     body: JSON.stringify({
-  //         userId: userId,
-  //         habitName: selectedHabit,
-  //         targetNum: selectedTarget,
-  //     })
-  // }
+  
 
   return (
     <div className="modal-bg">

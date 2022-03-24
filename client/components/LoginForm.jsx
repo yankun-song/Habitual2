@@ -15,7 +15,7 @@ const LoginForm = (props) => {
       body: JSON.stringify({ email: email, password: password }),
     };
 
-    fetch("http://localhost:3000/test/login", reqOptions)
+    fetch("http://localhost:3000/login", reqOptions)
       .then((res) => res.json())
       .then((data) => {
         if (data.userId) {

@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import OngoingHabit from "./OngoingHabit.jsx";
 import CompletedHabit from "./CompletedHabit.jsx";
 
@@ -14,6 +13,7 @@ const TodaysHabits = (props) => {
     if (habit.fullfilledPercent !== 1) {
       ongoingList.push(
         <OngoingHabit
+          userId={props.userId}
           key={"ongoing" + key}
           show={props.show}
           updateRecord={props.updateRecord}
@@ -23,6 +23,7 @@ const TodaysHabits = (props) => {
     } else
       completedList.push(
         <CompletedHabit
+          userId={props.userId}
           key={"completed" + key}
           show={props.show}
           updateRecord={props.updateRecord}

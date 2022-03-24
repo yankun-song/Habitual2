@@ -6,10 +6,24 @@ const CompletedHabit = (props) => {
   function updateRecord() {
     const newHabit = { habitName: habit.habitName, direction: "-" };
     props.updateRecord(newHabit);
+
+    // send request to /edithabit/update
+    const newNum = Math.round(habit.fullfilledPercent * habit.targetNum) - 1;
+    const reqOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userId: props.userId,
+        habitName: habit.habitName,
+        newNum,
+      }),
+    };
+
+    fetch("http://localhost:3000/edithabit/update", reqOptions).then((res) =>
+      res.json()
+    );
   }
-  const editHabit = () => {
-    props.show();
-  };
+
   return (
     <>
       <div className="item-todo">
