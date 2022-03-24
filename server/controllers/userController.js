@@ -64,6 +64,7 @@ userController.assignHabit = (req, res, next) => {
 };
 
 userController.updateRecord = (req, res, next) => {
+  // should we add error handling at this point?
   const { userId, habitName, newNum } = req.body;
   res.locals.userId = userId;
   // res.locals.habitId = habitPairs[habitName];

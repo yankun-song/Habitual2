@@ -7,7 +7,7 @@ const signupRouter = require('./routes/signup.js');
 const loginRouter = require('./routes/login');
 const feedRouter = require('./routes/feed.js');
 const edithabitRouter = require('./routes/edithabit');
-// const calendarRouter = require('./routes/calendar');
+const getmoreRouter = require('./routes/getmore');
 
 const cors = require('cors');
 const port = 3000;
@@ -31,6 +31,7 @@ app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
 app.use('/feed', feedRouter);
 app.use('/edithabit', edithabitRouter);
+app.use('/getmore', getmoreRouter);
 
 // Unknown route handler
 app.use((req, res) => res.status(404).send('You are in the wrong place! 😡'));
