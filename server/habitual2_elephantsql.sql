@@ -2,41 +2,36 @@ CREATE TABLE users(
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(20) NOT NULL,
     last_name VARCHAR(20) NOT NULL,
-    user_name VARCHAR(30) NOT NULL UNIQUE, 
+    username VARCHAR(30) NOT NULL UNIQUE, 
     email VARCHAR(40) NOT NULL UNIQUE,
     password VARCHAR(40) NOT NULL
-)
-
-CREATE TABLE habits(
-    id SERIAL PRIMARY KEY,
-    habit_name VARCHAR(30) NOT NULL,
-    is_boolean BOOLEAN NOT NULL
-)
+) -- added 03.23.22 12pm
 
 CREATE TABLE user_habits(
     user_id INTEGER,
-    habit_id INTEGER,
     FOREIGN KEY(user_id) REFERENCES users(id),
-    FOREIGN KEY(habit_id) REFERENCES habits(id),
+    habit_name VARCHAR(30),
     target_num INTEGER,
-    active BOOLEAN
-)
+    active BOOLEAN,
+    PRIMARY KEY (user_id, habit_name)
+) -- added 03.23.22 12pm
 
 CREATE TABLE user_habit_records(
     user_id INTEGER,
-    habit_id INTEGER,
-    FOREIGN KEY(user_id)  REFERENCES users(id),
-    FOREIGN KEY(habit_id)  REFERENCES habits(id),
+    habit_name VARCHAR(30),
+    FOREIGN KEY(user_id, habit_name)  REFERENCES user_habits(user_id, habit_name),
     date DATE,
-    fullfilled_percent DECIMAL
-)
+    fullfilled_percent DECIMAL,
+    PRIMARY KEY (user_id, habit_name, date)
+) -- added 03.23.22 12pm
 
-CREATE TABLE daily_count(
+CREATE TABLE daily_avgs(
     user_id INTEGER,
+    date Date,
     FOREIGN KEY(user_id) REFERENCES users(id),
-    date DATE,
-    total_percent DECIMAL
-)
+    avg_percent DECIMAL,
+    PRIMARY KEY (user_id, date)
+) -- added 03.23.22 12pm
 
 -- Add users
 INSERT INTO users (first_name, last_name, user_name, email, password)

@@ -4,6 +4,7 @@ const userController = {};
 userController.addUser = (req, res, next) => {
   const userProps = ['firstName', 'lastName', 'username', 'email', 'password'];
   res.locals.newUser = {};
+  
 
   for (const prop of userProps) {
     if (!req.body[prop]) {
@@ -23,7 +24,7 @@ userController.addUser = (req, res, next) => {
 userController.checkUser = (req, res, next) => {
   const userProps = ['email', 'password'];
   res.locals.loginUser = {};
-
+  // console.log('req body is ', req.body)
   for (const prop of userProps) {
     if (!req.body[prop]) {
       return next({
@@ -40,6 +41,7 @@ userController.checkUser = (req, res, next) => {
 
 // Get user email from feed request
 userController.getUserInfo = (req, res, next) => {
+  // console.log('in get user info on the user Controller')
   const userId = req.body.userId;
   if (!userId)
     return next({
@@ -53,31 +55,20 @@ userController.getUserInfo = (req, res, next) => {
 };
 
 userController.assignHabit = (req, res, next) => {
-  const { userId, habitName, targetNum } = req.body;
-  const habitPairs = {
-    Water: 1,
-    'Make Bed': 2,
-    'Walk Dog': 3,
-    'Sleep on Time': 4,
-    Stretch: 5,
-  };
-  res.locals.userId = userId;
-  res.locals.habitId = habitPairs[habitName];
-  res.locals.targetNum = targetNum;
+  console.log("console.log in userController.assignHabbit: ", req.body)
+  const { userId, habit_name, target_num } = req.body;
+  res.locals.user_id = userId;
+  res.locals.habit_name = habit_name; 
+  res.locals.target_num = target_num;
   return next();
 };
 
 userController.updateRecord = (req, res, next) => {
+  // should we add error handling at this point?
   const { userId, habitName, newNum } = req.body;
-  const habitPairs = {
-    Water: 1,
-    'Make Bed': 2,
-    'Walk Dog': 3,
-    'Sleep on Time': 4,
-    Stretch: 5,
-  };
   res.locals.userId = userId;
-  res.locals.habitId = habitPairs[habitName];
+  // res.locals.habitId = habitPairs[habitName];
+  res.locals.habitName = habitName;
   res.locals.newNum = newNum;
   return next();
 };
