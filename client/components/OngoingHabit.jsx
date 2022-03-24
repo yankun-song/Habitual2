@@ -1,14 +1,16 @@
 import React from "react";
 
-const CompletedHabit = (props) => {
+const OngoingHabit = (props) => {
   const habit = props.habit;
 
-  function updateRecord() {
-    const newHabit = { habitName: habit.habitName, direction: "-" };
+  function updateRecord(direction) {
+    if (habit.fullfilledPercent == 0 && direction == "-") return;
+    const newHabit = { habitName: habit.habitName, direction };
     props.updateRecord(newHabit);
 
     // send request to /edithabit/update
-    const newNum = Math.round(habit.fullfilledPercent * habit.targetNum) - 1;
+    const currentNum = Math.round(habit.fullfilledPercent * habit.targetNum);
+    const newNum = direction === "+" ? currentNum + 1 : currentNum - 1;
     const reqOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -36,17 +38,27 @@ const CompletedHabit = (props) => {
         <div className="progress-container">
           <div className="wrapper-progressbar" onClick={() => {}}>
             <div
-              className="progressbar-completed"
+              className="progressbar"
               style={{ width: `${habit.fullfilledPercent * 100}%` }}
             ></div>
           </div>
           <div className="wrapper-btns">
-            <div className="btn-big-minus" onClick={updateRecord}>
+            <div
+              className="btn-progress minus"
+              onClick={() => {
+                updateRecord("-");
+              }}
+            >
               -
             </div>
-            {/* <div className="btn-progress plus" onClick={increment}>
-            +
-          </div> */}
+            <div
+              className="btn-progress plus"
+              onClick={() => {
+                updateRecord("+");
+              }}
+            >
+              +
+            </div>
           </div>
         </div>
       </div>
@@ -54,4 +66,4 @@ const CompletedHabit = (props) => {
   );
 };
 
-export default CompletedHabit;
+export default OngoingHabit;

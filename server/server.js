@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 
 // import routers
+const testRouter = require("./routes/test.js");
 const signupRouter = require('./routes/signup.js');
 const loginRouter = require('./routes/login');
 const feedRouter = require('./routes/feed.js');
@@ -27,6 +28,7 @@ app.get('/', (req, res) => {
 });
 
 // Define Routes Handler
+app.use("/test", testRouter);  // for frontend test purposes
 app.use('/signup', signupRouter);
 app.use('/login', loginRouter);
 app.use('/feed', feedRouter);
