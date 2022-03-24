@@ -41,7 +41,7 @@ userController.checkUser = (req, res, next) => {
 
 // Get user email from feed request
 userController.getUserInfo = (req, res, next) => {
-  //console.log('in get user info on the user Controller')
+  // console.log('in get user info on the user Controller')
   const userId = req.body.userId;
   if (!userId)
     return next({
@@ -66,7 +66,8 @@ userController.assignHabit = (req, res, next) => {
 userController.updateRecord = (req, res, next) => {
   const { userId, habitName, newNum } = req.body;
   res.locals.userId = userId;
-  res.locals.habitId = habitPairs[habitName];
+  // res.locals.habitId = habitPairs[habitName];
+  res.locals.habitName = habitName;
   res.locals.newNum = newNum;
   return next();
 };
