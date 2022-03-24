@@ -5,30 +5,28 @@ import * as actions from "../actions/actions";
 import TopBar from "../components/TopBar.jsx";
 import Calendar from "../components/Calendar.jsx";
 import Habits from "../components/Habits.jsx";
-import Completed from "../components/Completed.jsx";
 import AddHabit from "../components/AddHabit.jsx";
 import EditHabit from "../components/EditHabit.jsx";
 
 // TODO: add calendar
 const mapStateToProps = (state) => ({
   userId: state.user.userId,
-  userName: state.user.userName,
+  username: state.user.username,
   calendar: state.user.calendar,
   todaysHabits: state.user.todaysHabits,
-  showModalAdd: state.user.showModalAdd,
+  addPage: state.user.addPage,
   showModalEdit: state.user.showModalEdit,
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getFeed: (userInfo) => dispatch(actions.getFeedActionCreator(userInfo)),
+    createHabit: (newHabit) =>
+      dispatch(actions.createHabitActionCreator(newHabit)),
     updateRecord: (habitInfo) =>
       dispatch(actions.updateReocrdActionCreator(habitInfo)),
 
-    showModalAdd: (show) => dispatch(actions.showModalAddActionCreator(show)),
-    hideModalAdd: (show) => dispatch(actions.hideModalAddActionCreator(show)),
-    showModalEdit: (show) => dispatch(actions.showModalEditActionCreator(show)),
-    hideModalEdit: (show) => dispatch(actions.hideModalEditActionCreator(show)),
+    displayAdd: (bool) => dispatch(actions.displayAddActionCreator(bool)),
   };
 };
 
@@ -40,25 +38,20 @@ class FeedContainer extends Component {
   render() {
     return (
       <div>
-        {/* <AddHabit 
-                    show={this.props.showModalAdd}
-                    hideModalAdd={this.props.hideModalAdd} 
-                    habits={this.props.habits}/> */}
+        <AddHabit
+          addPage={this.props.addPage}
+          displayAdd={this.props.displayAdd}
+          createHabit={this.props.createHabit}
+        />
         {/* <EditHabit 
                     show={this.props.showModalEdit} 
                     habits={this.props.todayHabit}/> */}
-        <TopBar showModalAdd={this.props.showModalAdd} />
+        <TopBar displayAdd={this.props.displayAdd} />
         <Calendar calendar={this.props.calendar} />
         <Habits
-          show={this.props.showModalEdit}
           updateRecord={this.props.updateRecord}
           todaysHabits={this.props.todaysHabits}
         />
-        {/* <Completed 
-                    show={this.props.showModalEdit} 
-                    uncompleteBool={this.props.uncompleteBoolHabit} 
-                    decrementNum={this.props.decrementNumHabit} 
-                    todayHabit={this.props.todayHabit}/> */}
       </div>
     );
   }

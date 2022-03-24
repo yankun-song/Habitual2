@@ -6,7 +6,7 @@ const router = express.Router();
 
 // adding a new user ROUTE HANDLER
 router.post("/login", (req, res) => {
-  return res.status(200).json({ userId: 1, userName: "BigCat" });
+  return res.status(200).json({ userId: 1, username: "BigCat" });
 });
 
 router.post("/feed", (req, res) => {
@@ -15,6 +15,7 @@ router.post("/feed", (req, res) => {
     todaysHabits: [
       { habitName: "drink water", targetNum: 5, fullfilledPercent: 0.4 }, // each element is an object
       { habitName: "walk dog", targetNum: 1, fullfilledPercent: 1 },
+      { habitName: "walk cat", targetNum: 6, fullfilledPercent: 0.5 },
     ],
   });
 });

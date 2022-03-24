@@ -3,6 +3,8 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 export const GET_FEED = "GET_FEED";
 export const UPDATE_RECORD = "UPDATE_RECORD";
 export const CREATE_HABIT = 'CREATE_HABIT';
+export const DISPLAY_ADD = "DISPLAY_ADD";
+
 
 export const SHOW_MODAL_ADD = 'SHOW_MODAL_ADD';
 export const SHOW_MODAL_EDIT = 'SHOW_MODAL_EDIT';

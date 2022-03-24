@@ -18,7 +18,6 @@ const LoginForm = (props) => {
     fetch("http://localhost:3000/test/login", reqOptions)
       .then((res) => res.json())
       .then((data) => {
-        console.log("-----", data);
         if (data.userId) {
           // get state data from db
           // post a new request

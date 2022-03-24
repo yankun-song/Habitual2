@@ -3,28 +3,21 @@ import React from "react";
 const OngoingHabit = (props) => {
   const habit = props.habit;
 
-  function increment() {
-    if (habit.status < habit.goal) {
-      props.incrementNum(habit[0]);
-      //add PUT req to backend
-    }
+  function updateRecord(direction) {
+    if (habit.fullfilledPercent == 0 && direction == "-") return;
+    const newHabit = { habitName: habit.habitName, direction };
+    props.updateRecord(newHabit);
   }
-  function decrement() {
-    if (habit.status > 0) {
-      props.decrementNum(habit[0]);
-      // add PUT req to backend
-    }
-  }
+
   const editHabit = () => {
     props.show();
   };
   return (
     <>
-      <div>Ongoing:</div>
       <div className="item-todo">
         <div className="wrapper-habit-text">
           <div className="habit-name habit-text">{habit.habitName}</div>
-          <div className="habit-status habit-text">{`${Math.floor(
+          <div className="habit-status habit-text">{`${Math.round(
             habit.fullfilledPercent * habit.targetNum
           )}/${habit.targetNum}`}</div>
         </div>
@@ -36,10 +29,20 @@ const OngoingHabit = (props) => {
             ></div>
           </div>
           <div className="wrapper-btns">
-            <div className="btn-progress minus" onClick={decrement}>
+            <div
+              className="btn-progress minus"
+              onClick={() => {
+                updateRecord("-");
+              }}
+            >
               -
             </div>
-            <div className="btn-progress plus" onClick={increment}>
+            <div
+              className="btn-progress plus"
+              onClick={() => {
+                updateRecord("+");
+              }}
+            >
               +
             </div>
           </div>

@@ -2,38 +2,37 @@ import * as types from "../constants/actionTypes";
 
 const initialState = {
   userId: 10000,
-  userName: "Super User",
+  username: "Super User",
   calendar: Array(42).fill(0),
   todaysHabits: [
     { habitName: "drink water", targetNum: 5, fullfilledPercent: 0.4 }, // each element is an object
     { habitName: "walk dog", targetNum: 1, fullfilledPercent: 1 },
   ],
-  showModalAdd: false,
-  showModalEdit: false,
+  addPage: false,
+  editPage: false,
 };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-
     case types.LOGIN_USER: {
-      const { userId, userName } = action.payload;
-      const newState = { ...state, userId, userName };
+      const { userId, username } = action.payload;
+      const newState = { ...state, userId, username };
       return newState;
     }
 
     case types.GET_FEED: {
-      const { userId, userName, calendar, todaysHabits } = action.payload;
-      const newState = { ...state, userId, userName, calendar, todaysHabits };
+      const { userId, username, calendar, todaysHabits } = action.payload;
+      const newState = { ...state, userId, username, calendar, todaysHabits };
       return newState;
     }
 
     // should get new Avg from db, now not updating calendar
     case types.UPDATE_RECORD: {
-      //payload: {habitName:"walk dog", direction:"+", newAvg}
+      //payload: {habitName:"walk dog", direction:"+"}
       const newTodaysHabits = JSON.parse(JSON.stringify(state.todaysHabits));
       for (let habit of newTodaysHabits) {
         if (habit.habitName === action.payload.habitName) {
-          if (direction === "+") {
+          if (action.payload.direction === "+") {
             habit.fullfilledPercent =
               (habit.targetNum * habit.fullfilledPercent + 1) / habit.targetNum;
             break;
@@ -47,38 +46,24 @@ const userReducer = (state = initialState, action) => {
       return { ...state, todaysHabits: newTodaysHabits };
     }
 
-    case types.SHOW_MODAL_ADD: {
-      let showModalAdd = true;
-
+    case types.DISPLAY_ADD: {
       return {
         ...state,
-        showModalAdd,
+        addPage: action.payload,
       };
     }
-    case types.HIDE_MODAL_ADD: {
-      let showModalAdd = false;
 
+    case types.CREATE_HABIT: {
+      const newTodaysHabits = JSON.parse(JSON.stringify(state.todaysHabits));
+      const newHabit = {...action.payload, fullfilledPercent:0}
+      newTodaysHabits.push(newHabit);
       return {
         ...state,
-        showModalAdd,
+        addPage: false,
+        todaysHabits: newTodaysHabits,
       };
     }
-    case types.SHOW_MODAL_EDIT: {
-      let showModalEdit = true;
 
-      return {
-        ...state,
-        showModalEdit,
-      };
-    }
-    case types.HIDE_MODAL_EDIT: {
-      let showModalEdit = false;
-
-      return {
-        ...state,
-        showModalEdit,
-      };
-    }
     default: {
       return state;
     }

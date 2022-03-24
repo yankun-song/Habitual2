@@ -7,12 +7,14 @@ const TodaysHabits = (props) => {
   const todaysHabits = props.todaysHabits;
   const ongoingList = [];
   const completedList = [];
-
+  let dashboard = [];
+  let key = 0;
   for (let habit of todaysHabits) {
+    key += 1;
     if (habit.fullfilledPercent !== 1) {
-      console.log("ongoing", habit.habitName);
       ongoingList.push(
         <OngoingHabit
+          key={"ongoing" + key}
           show={props.show}
           updateRecord={props.updateRecord}
           habit={habit}
@@ -21,16 +23,22 @@ const TodaysHabits = (props) => {
     } else
       completedList.push(
         <CompletedHabit
+          key={"completed" + key}
           show={props.show}
           updateRecord={props.updateRecord}
           habit={habit}
         />
       );
   }
-
-  return (
-    <div className="wrapper-todo">{[...ongoingList, ...completedList]}</div>
-  );
+  if (ongoingList.length !== 0) {
+    dashboard.push(<div key={"ongoingTitle"}>Ongoing:</div>);
+    dashboard = dashboard.concat(ongoingList);
+  }
+  if (completedList.length !== 0) {
+    dashboard.push(<div key={"completedTitle"}>Completed:</div>);
+    dashboard = dashboard.concat(completedList);
+  }
+  return <div className="wrapper-todo">{dashboard}</div>;
 };
 
 export default TodaysHabits;

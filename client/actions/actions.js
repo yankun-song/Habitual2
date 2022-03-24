@@ -24,19 +24,7 @@ export const createHabitActionCreator = newHabit => ({
   payload: newHabit,
 });
 
-export const showModalAddActionCreator = show => ({
-  type: types.SHOW_MODAL_ADD,
-  payload: show,
-})
-export const hideModalAddActionCreator = show => ({
-  type: types.HIDE_MODAL_ADD,
-  payload: show,
-})
-export const showModalEditActionCreator = show => ({
-  type: types.SHOW_MODAL_EDIT,
-  payload: show,
-})
-export const hideModalEditActionCreator = show => ({
-  type: types.HIDE_MODAL_EDIT,
-  payload: show,
+export const displayAddActionCreator = bool => ({
+  type: types.DISPLAY_ADD,
+  payload: bool,
 })
