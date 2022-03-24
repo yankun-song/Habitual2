@@ -28,3 +28,13 @@ export const displayAddActionCreator = bool => ({
   type: types.DISPLAY_ADD,
   payload: bool,
 })
+
+export const displayHistoryActionCreator = (bool) => ({
+  type: types.DISPLAY_HISTORY,
+  payload: bool,
+});
+
+export const setDateDiffActionCreator = (diff) => ({
+  type: types.SET_DATE_DIFF,
+  payload: diff,
+});

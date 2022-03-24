@@ -6,7 +6,7 @@ import TopBar from "../components/TopBar.jsx";
 import Calendar from "../components/Calendar.jsx";
 import Habits from "../components/Habits.jsx";
 import AddHabit from "../components/AddHabit.jsx";
-import EditHabit from "../components/EditHabit.jsx";
+import GetHistory from "../components/GetHistory.jsx";
 
 // TODO: add calendar
 const mapStateToProps = (state) => ({
@@ -15,7 +15,8 @@ const mapStateToProps = (state) => ({
   calendar: state.user.calendar,
   todaysHabits: state.user.todaysHabits,
   addPage: state.user.addPage,
-  showModalEdit: state.user.showModalEdit,
+  historyPage: state.user.historyPage,
+  dateDiff: state.user.dateDiff,
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -25,8 +26,10 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actions.createHabitActionCreator(newHabit)),
     updateRecord: (habitInfo) =>
       dispatch(actions.updateReocrdActionCreator(habitInfo)),
-
     displayAdd: (bool) => dispatch(actions.displayAddActionCreator(bool)),
+    displayHistory: (bool) =>
+      dispatch(actions.displayHistoryActionCreator(bool)),
+    setDateDiff: (diff) => dispatch(actions.setDateDiffActionCreator(diff)),
   };
 };
 
@@ -43,11 +46,17 @@ class FeedContainer extends Component {
           displayAdd={this.props.displayAdd}
           createHabit={this.props.createHabit}
         />
-        {/* <EditHabit 
-                    show={this.props.showModalEdit} 
-                    habits={this.props.todayHabit}/> */}
         <TopBar displayAdd={this.props.displayAdd} />
-        <Calendar calendar={this.props.calendar} />
+        <Calendar
+          calendar={this.props.calendar}
+          displayHistory={this.props.displayHistory}
+          setDateDiff={this.props.setDateDiff}
+        />
+        <GetHistory
+          dateDiff={this.props.dateDiff}
+          historyPage={this.props.historyPage}
+          displayHistory={this.props.displayHistory}
+        />
         <Habits
           updateRecord={this.props.updateRecord}
           todaysHabits={this.props.todaysHabits}

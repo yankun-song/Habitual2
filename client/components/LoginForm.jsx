@@ -19,6 +19,8 @@ const LoginForm = (props) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.userId) {
+          // save user info
+          props.login({ userId: data.userId, username: data.username });
           // get state data from db
           // post a new request
           const req = {
@@ -33,9 +35,9 @@ const LoginForm = (props) => {
               props.getFeed(data);
               navigate("/feed");
             });
-        } 
-      }); 
-  } 
+        }
+      });
+  }
 
   function signupForm() {
     navigate("/signup");

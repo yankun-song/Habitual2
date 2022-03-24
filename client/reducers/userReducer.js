@@ -9,7 +9,8 @@ const initialState = {
     { habitName: "walk dog", targetNum: 1, fullfilledPercent: 1 },
   ],
   addPage: false,
-  editPage: false,
+  historyPage: false,
+  dateDiff: 0
 };
 
 const userReducer = (state = initialState, action) => {
@@ -53,9 +54,23 @@ const userReducer = (state = initialState, action) => {
       };
     }
 
+    case types.DISPLAY_HISTORY: {
+      return {
+        ...state,
+        historyPage: action.payload,
+      };
+    }
+
+    case types.SET_DATE_DIFF: {
+      return {
+        ...state,
+        dateDiff: action.payload,
+      };
+    }
+
     case types.CREATE_HABIT: {
       const newTodaysHabits = JSON.parse(JSON.stringify(state.todaysHabits));
-      const newHabit = {...action.payload, fullfilledPercent:0}
+      const newHabit = { ...action.payload, fullfilledPercent: 0 };
       newTodaysHabits.push(newHabit);
       return {
         ...state,
