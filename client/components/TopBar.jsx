@@ -11,7 +11,7 @@ const TopBar = (props) => {
         navigate('/');
     }
     function addHabit () {
-        props.showModalAdd();
+        props.displayAdd(true);
     }
     return (
         <div className="topbar">

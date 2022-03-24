@@ -7,85 +7,86 @@ $bluesapphire: #1c5973;
 $richblack: #153131;
 
 body {
-    background-color: $richblack;
-    font-family: Arial, Helvetica, sans-serif;
-    color: $beige;
-    margin: 0px;
+  background-color: $richblack;
+  font-family: Arial, Helvetica, sans-serif;
+  color: $beige;
+  margin: 0px;
 }
 h1 {
-    text-align: center;
-    font-size: 3rem;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-align: center;
+  font-size: 3rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 .topbar {
-    background-color: $beige;
-    display: flex;
-    padding: 15px;
-    display: flex;
-    height: 35px;
+  background-color: $beige;
+  display: flex;
+  padding: 15px;
+  display: flex;
+  height: 35px;
 }
 .modal-bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    // margin-top: 65px;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: $richblack;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  // margin-top: 65px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: $richblack;
 }
 .modal {
-    background: $white;
-    border-radius: 10px;
-    margin-top: 200px;
-    margin-left: 50px;
-    margin-right: 50px;
-    padding: 15px 15px;
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.6);
-    text-align: center;
-    .modal-content {
-      margin-top: 40px;
-    }
-    .modal-close {
-      font-weight: 600;
-      text-align: right;
-      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      font-size: 1.3rem;
-      border: 1px solid gray;
-      padding: 3px 8px;;
-      border-radius: 4px;
-      color: gray;
-      float: right;
-    }
-    .modal-close:hover {
-      cursor: pointer;
-      color: rgb(202, 0, 0);
-      border-color: rgb(202, 0, 0);
-    }
-    .modal-footer {
-        padding-bottom: 15px;
+  background: $white;
+  border-radius: 10px;
+  margin-top: 200px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 15px 15px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  .modal-content {
+    margin-top: 40px;
+  }
+  .modal-close {
+    font-weight: 600;
+    text-align: right;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    font-size: 1.3rem;
+    border: 1px solid gray;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: gray;
+    float: right;
+  }
+  .modal-close:hover {
+    cursor: pointer;
+    color: rgb(202, 0, 0);
+    border-color: rgb(202, 0, 0);
+  }
+  .modal-footer {
+    padding-bottom: 15px;
 
-        .btn-save {
-            width: 60%;
-            margin: 30px auto;
-            padding: 10px;
-            border-radius: 5px;
-            outline: none;
-            border: 1px solid $amazon;
-            background-color: $amazon;
-            font-size: 1rem;
-            font-weight: 600;
-            color: $white;
-        }
-        .btn-save:hover {
-          cursor: pointer;
-        }
-        .link-delete {
-          color: rgb(202, 0, 0);
-          text-decoration: underline;
-        }
-        .link-delete:hover {
-          cursor: pointer;
-        }
+    .btn-save {
+      width: 60%;
+      margin: 30px auto;
+      padding: 10px;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid $amazon;
+      background-color: $amazon;
+      font-size: 1rem;
+      font-weight: 600;
+      color: $white;
     }
+    .btn-save:hover {
+      cursor: pointer;
+    }
+    .link-delete {
+      color: rgb(202, 0, 0);
+      text-decoration: underline;
+    }
+    .link-delete:hover {
+      cursor: pointer;
+    }
+  }
 }
 .habit-picker {
   width: 60%;
@@ -100,312 +101,323 @@ h1 {
   cursor: pointer;
 }
 .calendar {
-    background-color: $white;
-    margin: 15px;
-    padding: 10px;
-    border-radius: 5px;
-    display: flex;
-    flex-wrap: wrap;
+  background-color: $white;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
 }
 #label-month {
-    text-align: right;
-    flex-grow: 1;
-    margin-top: 5px;
-    margin-right: 5px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: $bluesapphire;
-    font-weight: 600;
-    padding-left: 25px;
+  text-align: right;
+  flex-grow: 1;
+  margin-top: 5px;
+  margin-right: 5px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: $bluesapphire;
+  font-weight: 600;
+  padding-left: 25px;
 }
 .green {
-    background-color: $amazon;
+  background-color: $amazon;
 }
 .yellow-green {
-    background-color: $yellowgreencrayola;
+  background-color: $yellowgreencrayola;
 }
 .beige {
-    background-color: $beige;
+  background-color: $beige;
 }
+
+.grey {
+  background-color: #f0f0f5;
+}
+
 .squares-wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-items: left;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-items: left;
 }
 .square {
-    width: 20px;
-    height: 20px;
-    margin: 3px;
-    border-radius: 2px;
-    // box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
+  width: 20px;
+  height: 20px;
+  margin: 3px;
+  border-radius: 2px;
+  // box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
 }
 .wrapper-todo {
-    display: flex;
-    flex-direction: column;
-    margin: 15px;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
 }
 
 .wrapper-habit-text {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
-    .habit-text {
-        font-weight: 600;
-        margin: 8px 8px 0 8px;
-    }
+  .habit-text {
+    font-weight: 600;
+    margin: 8px 8px 0 8px;
+  }
 
-    .habit-status {
-        color: darken($white, 25%);
-    }
+  .habit-status {
+    color: darken($white, 25%);
+  }
 
-    .completed {
-        // font-weight: 500 !important;
-        color: $beige;
-        font-weight: 400;
-    }
+  .completed {
+    // font-weight: 500 !important;
+    color: $beige;
+    font-weight: 400;
+  }
 }
 
 .wrapper-editHabit {
-    display: flex;
-    padding: 0px 25px;
-    .edit-field {
-        margin: auto;
-        padding: 5px;
-        width: 100px;
-        text-align: center;
-        font-weight: 600;
-        font-size: 1.3rem;
-        border: 1px solid $bluesapphire;
-        background-color: none;
-    }
-    .edit-field:focus {
-        outline: none;
-        border: 1px solid $bluesapphire;
-    }
-    .edit-decrement {
-        background-color: $bluesapphire;
-        color: $white;
-        flex-grow: 1;
-        border-radius: 5px 0px 0px 5px;
-        font-weight: 600;
-        font-size: 1.5rem;
-        line-height: 1.4;
-    }
-    .edit-decrement:hover {
-      cursor: pointer;
-    }
-    .edit-increment {
-        background-color: $bluesapphire;
-        color: $white;
-        flex-grow: 1;
-        border-radius: 0px 5px 5px 0px;
-        font-weight: 600;
-        font-size: 1.5rem;
-        line-height: 1.5;
-    }
-    .edit-increment:hover {
-      cursor: pointer;
-    }
+  display: flex;
+  padding: 0px 25px;
+  .edit-field {
+    margin: auto;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.3rem;
+    border: 1px solid $bluesapphire;
+    background-color: none;
+  }
+  .edit-field:focus {
+    outline: none;
+    border: 1px solid $bluesapphire;
+  }
+  .edit-decrement {
+    background-color: $bluesapphire;
+    color: $white;
+    flex-grow: 1;
+    border-radius: 5px 0px 0px 5px;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+  .edit-decrement:hover {
+    cursor: pointer;
+  }
+  .edit-increment {
+    background-color: $bluesapphire;
+    color: $white;
+    flex-grow: 1;
+    border-radius: 0px 5px 5px 0px;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+  .edit-increment:hover {
+    cursor: pointer;
+  }
 }
 
 .item-todo {
-    background-color: $white;
-    border-radius: 5px;
-    color: $richblack;
-    margin-bottom: 10px;
+  background-color: $white;
+  border-radius: 5px;
+  color: $richblack;
+  margin-bottom: 10px;
 }
 .item-done {
-    background-color: $bluesapphire;
-    border-radius: 5px;
-    color: $beige;
-    margin-bottom: 10px;
+  background-color: $bluesapphire;
+  border-radius: 5px;
+  color: $beige;
+  margin-bottom: 10px;
 }
 .progress-container {
-    display: flex;
-    width: 100%;
-    height: 40px;
-    padding: 0px;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  padding: 0px;
 }
 .wrapper-progressbar {
-    width: 80%;
-    background-color: $richblack;
-    border-radius: 5px;
-    margin: 5px 5px 5px 5px;
-    padding: 3px;
+  width: 80%;
+  background-color: $richblack;
+  border-radius: 5px;
+  margin: 5px 5px 5px 5px;
+  padding: 3px;
 }
 
 .progressbar {
-    background-color: $amazon;
-    height: 100%;
-    border-radius: 4px;
+  background-color: $yellowgreencrayola;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.progressbar-completed {
+  background-color: $amazon;
+  height: 100%;
+  border-radius: 4px;
 }
 .wrapper-btns {
-    display: flex;
-    width: 20%;
+  display: flex;
+  width: 20%;
 }
 .btn-check {
-    background-color: $richblack;
-    color: $white;
-    width: 100%;
-    padding: 5px;
-    text-align: center;
-    margin: 5px 5px 5px 0px;
-    border-radius: 5px;
-    line-height: 1.5;
-    font-size: 0.9rem;
+  background-color: $richblack;
+  color: $white;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  margin: 5px 5px 5px 0px;
+  border-radius: 5px;
+  line-height: 1.5;
+  font-size: 0.9rem;
 }
 .btn-check:hover {
   cursor: pointer;
 }
 .btn-big-minus {
-    background-color: $richblack;
-    color: $white;
-    width: 100%;
-    padding: 5px;
-    text-align: center;
-    margin: 5px 5px 5px 0px;
-    border-radius: 5px;
-    line-height: 1.1;
-    font-size: 1.1rem;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: $richblack;
+  color: $white;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  margin: 5px 5px 5px 0px;
+  border-radius: 5px;
+  line-height: 1.1;
+  font-size: 1.1rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .btn-big-minus:hover {
   cursor: pointer;
 }
 .btn-progress {
-    background-color: $richblack;
-    color: $white;
-    width: 50%;
-    padding: 5px;
-    text-align: center;
+  background-color: $richblack;
+  color: $white;
+  width: 50%;
+  padding: 5px;
+  text-align: center;
 }
 .minus {
-    border-radius: 0px;
-    margin: 5px 0px 5px 0px;
-    border-radius: 5px 0px 0px 5px;
-    font-size: 1.1rem;
-    border-right: 1px solid $beige;
-    line-height: 1.1;
+  border-radius: 0px;
+  margin: 5px 0px 5px 0px;
+  border-radius: 5px 0px 0px 5px;
+  font-size: 1.1rem;
+  border-right: 1px solid $beige;
+  line-height: 1.1;
 }
 .minus:hover {
   cursor: pointer;
 }
 .plus {
-    margin: 5px 5px 5px 0px;
-    border-radius: 0px 5px 5px 0px;
-    line-height: 1.3;
+  margin: 5px 5px 5px 0px;
+  border-radius: 0px 5px 5px 0px;
+  line-height: 1.3;
 }
 .plus:hover {
   cursor: pointer;
 }
 #logo {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 2.2rem;
-    color: $amazon;
-    font-weight: 600;
-    text-decoration: underline;
-    margin-top: -5px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 2.2rem;
+  color: $amazon;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-top: -5px;
 }
 #logo:hover {
-    cursor:default;
+  cursor: default;
 }
 #add-hbt {
-    padding: 5px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.3rem;
-    border: none;
-    outline: none;
-    background: none;
-    color: $amazon;
-    margin: auto;
-    flex-grow: 1;
-    font-weight: 200;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  border: none;
+  outline: none;
+  background: none;
+  color: $amazon;
+  margin: auto;
+  flex-grow: 1;
+  font-weight: 200;
 }
 #add-hbt:hover {
   cursor: pointer;
 }
 #link-logout {
-    color: $amazon;
-    font-weight: 600;
-    font-size: 0.8rem;
-    margin-top: 10px;
+  color: $amazon;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-top: 10px;
 }
 #link-logout:hover {
   cursor: pointer;
 }
 .login-input {
-    padding: 15px;
-    margin: 15px;
-    text-align: center;
-    border-radius: 5px;
-    outline: none;
-    border: 1px solid $amazon;
-    background-color: $richblack;
-    color: $white;
-    font-size: 1rem;
+  padding: 15px;
+  margin: 15px;
+  text-align: center;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid $amazon;
+  background-color: $richblack;
+  color: $white;
+  font-size: 1rem;
 }
 ::placeholder {
-    color: $beige;
-    opacity: 0.8;
+  color: $beige;
+  opacity: 0.8;
 }
 .login-btn {
-    width: 60%;
-    margin: 10px auto;
-    padding: 10px;
-    border-radius: 5px;
-    outline: none;
-    border: 1px solid $amazon;
-    background-color: $amazon;
-    font-size: 1rem;
-    font-weight: 600;
-    color: $beige;
+  width: 60%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid $amazon;
+  background-color: $amazon;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $beige;
 }
 .login-btn:hover {
-    background-color: $skobeloff;
-    border: 1px solid $skobeloff;
-    cursor: pointer;
+  background-color: $skobeloff;
+  border: 1px solid $skobeloff;
+  cursor: pointer;
 }
 .login-link {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: $beige;
-    text-decoration: underline;
-    background-color: none;
-    text-align: center;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: $beige;
+  text-decoration: underline;
+  background-color: none;
+  text-align: center;
 }
 .login-link:hover {
   cursor: pointer;
 }
 .wrapper-login {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .signup-form {
-    .wrapper-signup {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        // background-color: yellow;
-        
-        .signup-input {
-            margin: 10px !important;
-            padding: 10px !important;
-            flex-grow: 1;
-        }
+  .wrapper-signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // background-color: yellow;
 
-        .signup-text {
-            text-align: center;
-            margin: 10px !important;
-        }
+    .signup-input {
+      margin: 10px !important;
+      padding: 10px !important;
+      flex-grow: 1;
     }
 
-    .signup-name-input {
-        display: flex;
+    .signup-text {
+      text-align: center;
+      margin: 10px !important;
     }
+  }
+
+  .signup-name-input {
+    display: flex;
+  }
 }
 
 .hidden {
-    display: none;
+  display: none;
 }

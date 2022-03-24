@@ -1,31 +1,32 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../actions/actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../actions/actions";
 
-import LoginForm from '../components/LoginForm.jsx';
+import LoginForm from "../components/LoginForm.jsx";
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   // habits: state.habits
-})
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      getFeed: (data) => dispatch(actions.getFeedActionCreator(data)),
-  }
+    login: (data) => dispatch(actions.loginUserActionCreator(data)),
+    getFeed: (data) => dispatch(actions.getFeedActionCreator(data)),
+  };
 };
 
 class LoginContainer extends Component {
   constructor(props) {
     super(props);
-  };
+  }
 
-  render () { 
+  render() {
     return (
       <div>
-        <LoginForm getFeed={this.props.getFeed}/>
+        <LoginForm login={this.props.login} getFeed={this.props.getFeed} />
       </div>
     );
   }
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps) (LoginContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
